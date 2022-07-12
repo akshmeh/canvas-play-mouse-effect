@@ -1,16 +1,17 @@
-const canvas = document.querySelector('#can');
+const canvas = document.querySelector('#element');
 const ctx = canvas.getContext('2d')
 var hsl =0
 var particleArray =[]
 var mouseActive = false
 
+
 window.addEventListener('load',()=>{
-    canvas.width = document.width;
-    canvas.height = document.height;
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
 })
 window.addEventListener('resize',()=>{
-    canvas.width = document.width;
-    canvas.height = document.height;
+    canvas.width = window.innerWidth
+    canvas.height = window.innerHeight
 })
 const mouse = {
     x: undefined,
@@ -21,7 +22,7 @@ canvas.addEventListener('mousemove',(e)=>{
 
         mouse.x = e.x;
         mouse.y = e.y;
-        for (let index = 0; index < 1000; index++) {
+        for (let index = 0; index < 3; index++) {
             particleArray.push(new Particles)
         }
     }
@@ -52,6 +53,7 @@ class Particles{
         }
     }
     draw(){
+        // console.log('true');
         ctx.fillStyle = this.color;
         ctx.beginPath()
         ctx.arc(this.x,this.y,this.size,0,Math.PI * 2)
